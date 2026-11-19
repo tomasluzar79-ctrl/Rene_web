@@ -119,7 +119,7 @@
       font-weight: 700;
     }
 
-    /* Velký úvodní banner se sníženým krytím pozadí */
+    /* Úvodní banner */
     .hero {
       min-height: 78vh;
       display: flex;
@@ -208,6 +208,7 @@
     /* Sekce */
     section {
       padding: 72px 0;
+      scroll-margin-top: 84px;
     }
 
     h2 {
@@ -238,50 +239,117 @@
       margin-top: 16px;
     }
 
-    /* Skupiny */
-    .groups {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .group-card {
-      background-color: var(--white);
-      border: 1px solid var(--slate-200);
-      border-top: 4px solid var(--slate-700);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-top-color 0.2s ease;
-    }
-
-    .group-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-top-color: var(--blue-accent);
-    }
-
-    .group-card h3 {
-      font-size: 21px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: var(--slate-900);
-      margin-bottom: 10px;
-    }
-
-    .group-card p {
-      color: var(--slate-600);
-      font-size: 15px;
-    }
-
-    /* Fotogalerie */
-    .gallery-grid {
+    /* Malé bannerové karty skupin */
+    .category-banners {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
-    .gallery-card {
+    .banner-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 240px;
+      padding: 24px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--white);
+      overflow: hidden;
+      background-color: var(--slate-800);
+      border: 1px solid rgba(181, 209, 237, 0.25);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .banner-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--blue-soft);
+    }
+
+    .banner-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+      transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+
+    .banner-btn:hover .banner-bg {
+      transform: scale(1.04);
+      opacity: 0.58;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17, 25, 36, 0.22) 0%, rgba(17, 25, 36, 0.84) 100%);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue-soft);
+      margin-bottom: 8px;
+    }
+
+    .banner-title {
+      display: block;
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+
+    .banner-sub {
+      display: block;
+      font-size: 14px;
+      color: #dbe7f2;
+      margin-bottom: 12px;
+    }
+
+    .banner-cta {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      border-bottom: 2px solid var(--blue-accent);
+      padding-bottom: 2px;
+    }
+
+    /* Detailní sekce kategorií s referenčními fotkami */
+    .category-intro {
+      background-color: var(--white);
+      border: 1px solid var(--slate-200);
+      border-left: 5px solid var(--blue-accent);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      color: var(--slate-800);
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .ref-card {
       background-color: var(--white);
       border: 1px solid var(--slate-200);
       border-radius: var(--radius);
@@ -290,12 +358,12 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .gallery-card:hover {
+    .ref-card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-md);
     }
 
-    .gallery-trigger {
+    .ref-trigger {
       display: block;
       width: 100%;
       border: none;
@@ -305,33 +373,20 @@
       cursor: pointer;
     }
 
-    .gallery-thumb {
+    .ref-thumb {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
       display: block;
       background-color: var(--slate-200);
     }
 
-    .gallery-meta {
-      padding: 16px 20px;
-      border-top: 3px solid var(--slate-700);
-    }
-
-    .gallery-tag {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--blue-accent-hover);
-      margin-bottom: 4px;
-    }
-
-    .gallery-title {
-      font-size: 18px;
+    .ref-caption {
+      padding: 14px 18px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--slate-900);
+      border-top: 3px solid var(--slate-700);
     }
 
     /* Lightbox pro zvětšení fotky */
@@ -454,369 +509,4 @@
     }
 
     textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    #form-message {
-      margin-top: 14px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--blue-accent-hover);
-    }
-
-    .contact-box {
-      border-top: 4px solid var(--blue-accent);
-    }
-
-    .contact-box p {
-      margin-bottom: 12px;
-      font-size: 15px;
-    }
-
-    .contact-box p:first-child {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--slate-900);
-      margin-bottom: 14px;
-    }
-
-    .contact-box p:first-child strong {
-      font-weight: 700;
-    }
-
-    .contact-box a {
-      color: var(--blue-accent-hover);
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    .contact-box a:hover {
-      text-decoration: underline;
-    }
-
-    /* Patička */
-    footer {
-      background-color: var(--slate-950);
-      color: var(--blue-soft);
-      padding: 26px 0;
-      font-size: 13px;
-      border-top: 3px solid var(--blue-accent);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    @media (max-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 64vh;
-        padding: 100px 0;
-      }
-
-      .groups,
-      .gallery-grid,
-      .contact-layout,
-      .field-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header id="uvod">
-    <div class="wrap header-inner">
-      <a href="#uvod" class="logo">
-        <span class="logo-title">Kamenictví <strong>Cihlář</strong></span>
-        <span class="logo-sub">Zpracování kamene</span>
-      </a>
-
-      <nav aria-label="Hlavní menu">
-        <a href="#uvod">ÚVOD</a>
-        <a href="#info-o-nas">INFO O NÁS</a>
-        <a href="#fotogalerie">FOTOGALERIE</a>
-        <a href="#poptavka">POPTÁVKA</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-content">
-        <p class="hero-kicker">Jsme tu pro vás již od roku 1997</p>
-        <h1>JSME SPECIALISTÉ NA <strong>ZPRACOVÁNÍ KAMENE</strong></h1>
-        <div class="hero-buttons">
-          <a href="#info-o-nas" class="btn btn-ghost">VÍCE INFO</a>
-          <a href="#poptavka" class="btn">POPTÁVKA</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="info-o-nas">
-    <div class="wrap">
-      <h2>Info <strong>o nás</strong></h2>
-      <div class="panel">
-        <p>
-          Firma vznikla v roce 1997 a naše služby poskytujeme převážně v oblasti severní Moravy.
-          Zaměřujeme se na zpracování kamene a to jak pro interiéry jako kamenné pracovní desky
-          nebo vnitřní parapety tak pro exteriéry. Nabízíme komplexní realizaci zakázek a precizní
-          zpracování. Taktéž širokou škálu materiálů v různých barvách a vzorech z celého světa.
-        </p>
-        <p>
-          Díky mnohaletým zkušenostem nabízíme pouze kvalitní práci za rozumné peníze. Věříme, že
-          s našimi službami budete maximálně spokojeni.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skupiny">
-    <div class="wrap">
-      <h2>Rozdělení do <strong>skupin</strong></h2>
-      <div class="groups">
-        <article class="group-card">
-          <h3>Interiéry</h3>
-          <p>Kamenné pracovní desky nebo vnitřní parapety.</p>
-        </article>
-
-        <article class="group-card">
-          <h3>Exteriéry</h3>
-          <p>Zpracování kamene pro exteriéry a komplexní realizace zakázek.</p>
-        </article>
-
-        <article class="group-card">
-          <h3>Materiály a zpracování</h3>
-          <p>Komplexní realizace zakázek a precizní zpracování. Široká škála materiálů v různých barvách a vzorech z celého světa.</p>
-        </article>
-
-        <article class="group-card">
-          <h3>Fotogalerie</h3>
-          <p>Fotogalerie realizací a materiálů.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="fotogalerie">
-    <div class="wrap">
-      <h2>Foto<strong>galerie</strong></h2>
-      <div class="gallery-grid">
-        <article class="gallery-card">
-          <button type="button" class="gallery-trigger" data-src="image_0.png" data-caption="Interiéry – kuchyňská pracovní deska s žilkováním">
-            <img src="image_0.png" alt="Kuchyňská pracovní deska s kamenným žilkováním" class="gallery-thumb" />
-            <div class="gallery-meta">
-              <span class="gallery-tag">Interiéry</span>
-              <h3 class="gallery-title">Kamenná pracovní deska</h3>
-            </div>
-          </button>
-        </article>
-
-        <article class="gallery-card">
-          <button type="button" class="gallery-trigger" data-src="images/parapet-1.jpg" data-caption="Interiéry – vnitřní kamenný parapet">
-            <img src="images/parapet-1.jpg" alt="Vnitřní parapet z přírodního kamene" class="gallery-thumb" />
-            <div class="gallery-meta">
-              <span class="gallery-tag">Interiéry</span>
-              <h3 class="gallery-title">Vnitřní parapety</h3>
-            </div>
-          </button>
-        </article>
-
-        <article class="gallery-card">
-          <button type="button" class="gallery-trigger" data-src="images/exterier-1.jpg" data-caption="Exteriéry – venkovní realizace z kamene">
-            <img src="images/exterier-1.jpg" alt="Exteriérové zpracování přírodního kamene" class="gallery-thumb" />
-            <div class="gallery-meta">
-              <span class="gallery-tag">Exteriéry</span>
-              <h3 class="gallery-title">Exteriérové realizace</h3>
-            </div>
-          </button>
-        </article>
-
-        <article class="gallery-card">
-          <button type="button" class="gallery-trigger" data-src="images/material-1.jpg" data-caption="Materiály – vzory a barvy přírodního kamene">
-            <img src="images/material-1.jpg" alt="Vzorky kamene v různých barvách a kresbách" class="gallery-thumb" />
-            <div class="gallery-meta">
-              <span class="gallery-tag">Materiály</span>
-              <h3 class="gallery-title">Vzorky materiálů</h3>
-            </div>
-          </button>
-        </article>
-
-        <article class="gallery-card">
-          <button type="button" class="gallery-trigger" data-src="images/kuchyn-2.jpg" data-caption="Interiéry – detail opracování a montáže">
-            <img src="images/kuchyn-2.jpg" alt="Detailní zpracování kamenné kuchyňské desky" class="gallery-thumb" />
-            <div class="gallery-meta">
-              <span class="gallery-tag">Interiéry</span>
-              <h3 class="gallery-title">Precizní opracování</h3>
-            </div>
-          </button>
-        </article>
-
-        <article class="gallery-card">
-          <button type="button" class="gallery-trigger" data-src="images/realizacia-2.jpg" data-caption="Realizace – zakázková kamenická práce">
-            <img src="images/realizacia-2.jpg" alt="Zakázková kamenická realizace" class="gallery-thumb" />
-            <div class="gallery-meta">
-              <span class="gallery-tag">Realizace</span>
-              <h3 class="gallery-title">Komplexní zakázka</h3>
-            </div>
-          </button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Náhled fotografie">
-    <div class="lightbox-box">
-      <img id="lightbox-img" src="" alt="" class="lightbox-img" />
-      <div class="lightbox-caption">
-        <span id="lightbox-text"></span>
-        <button type="button" id="lightbox-close" class="lightbox-close">Zavřít</button>
-      </div>
-    </div>
-  </div>
-
-  <section id="poptavka">
-    <div class="wrap">
-      <h2><strong>POPTÁVKA</strong></h2>
-      <div class="contact-layout">
-        <form id="contact-form">
-          <div class="field-row">
-            <div class="field">
-              <label for="name">Jméno a příjmení *</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-
-            <div class="field">
-              <label for="phone">Telefon *</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="email">E-mail *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div class="field">
-              <label for="group">Skupina</label>
-              <select id="group" name="group">
-                <option value="Interiéry">Interiéry</option>
-                <option value="Exteriéry">Exteriéry</option>
-                <option value="Materiály a zpracování">Materiály a zpracování</option>
-                <option value="Fotogalerie">Fotogalerie</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="message">Zpráva / poptávka *</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-
-          <button type="submit" class="btn">Odeslat poptávku</button>
-          <p id="form-message" aria-live="polite"></p>
-        </form>
-
-        <aside class="contact-box">
-          <p>Kamenictví <strong>Cihlář</strong></p>
-          <p>Karla Svobody 179<br />Ostrava Plesná</p>
-          <p><a href="mailto:info@cihlar-rene.cz">info@cihlar-rene.cz</a></p>
-          <p><a href="http://www.cihlar-rene.cz/">www.cihlar-rene.cz</a></p>
-          <p><a href="tel:+420604516860">+420 604 516 860</a></p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>Copyright © 2017 Kamenictví Cihlář</span>
-      <span>TOPWEBY - webhosting, domény, tvorba www</span>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      var form = document.getElementById("contact-form");
-      var statusText = document.getElementById("form-message");
-
-      if (form && statusText) {
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          var name = document.getElementById("name").value.trim();
-          var phone = document.getElementById("phone").value.trim();
-          var email = document.getElementById("email").value.trim();
-          var group = document.getElementById("group").value;
-          var message = document.getElementById("message").value.trim();
-
-          var subject = encodeURIComponent("Poptávka – " + group + " (" + name + ")");
-          var body = encodeURIComponent(
-            "Jméno: " + name + "\n" +
-            "Telefon: " + phone + "\n" +
-            "E-mail: " + email + "\n" +
-            "Skupina: " + group + "\n\n" +
-            "Zpráva:\n" + message
-          );
-
-          statusText.textContent = "Otevírám e-mailového klienta pro odeslání na info@cihlar-rene.cz...";
-          window.location.href = "mailto:info@cihlar-rene.cz?subject=" + subject + "&body=" + body;
-        });
-      }
-
-      var lightbox = document.getElementById("lightbox");
-      var lightboxImg = document.getElementById("lightbox-img");
-      var lightboxText = document.getElementById("lightbox-text");
-      var lightboxClose = document.getElementById("lightbox-close");
-      var triggers = document.querySelectorAll(".gallery-trigger");
-
-      function closeLightbox() {
-        if (!lightbox) return;
-        lightbox.classList.remove("is-open");
-        if (lightboxImg) lightboxImg.src = "";
-      }
-
-      triggers.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var src = btn.getAttribute("data-src");
-          var caption = btn.getAttribute("data-caption") || "";
-          if (!lightbox || !lightboxImg || !src) return;
-          lightboxImg.src = src;
-          lightboxImg.alt = caption;
-          if (lightboxText) lightboxText.textContent = caption;
-          lightbox.classList.add("is-open");
-        });
-      });
-
-      if (lightboxClose) {
-        lightboxClose.addEventListener("click", closeLightbox);
-      }
-
-      if (lightbox) {
-        lightbox.addEventListener("click", function (e) {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-      }
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          closeLightbox();
-        }
-      });
-    })();
-  </script>
-</body>
-</html>
+      min-height:
