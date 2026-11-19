@@ -96,23 +96,28 @@
       color: var(--blue-soft);
     }
 
-    /* Úvodní část – obrázek image_0.png je v kořeni repozitáře vedle index.html */
+    /* Větší úvodní pole s jemnějším překryvem, aby vynikla fotka image_0.png */
     .hero {
+      min-height: 440px;
+      display: flex;
+      align-items: center;
       background:
-        linear-gradient(135deg, rgba(24, 35, 48, 0.85), rgba(51, 72, 97, 0.82)),
+        linear-gradient(135deg, rgba(24, 35, 48, 0.48), rgba(51, 72, 97, 0.42)),
         url("image_0.png") center / cover no-repeat;
       color: var(--white);
-      padding: 72px 0;
+      padding: 104px 0;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
     }
 
     .hero-kicker {
       color: var(--blue-soft);
       font-size: 15px;
+      font-weight: bold;
       margin-bottom: 10px;
     }
 
     .hero h1 {
-      font-size: 36px;
+      font-size: 38px;
       line-height: 1.25;
       margin-bottom: 24px;
       max-width: 720px;
@@ -142,13 +147,13 @@
     }
 
     .btn-ghost {
-      background-color: transparent;
+      background-color: rgba(24, 35, 48, 0.35);
       border: 1px solid var(--blue-soft);
       color: var(--white);
     }
 
     .btn-ghost:hover {
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: rgba(255, 255, 255, 0.14);
     }
 
     /* Sekce */
@@ -185,296 +190,4 @@
 
     .group-card {
       background-color: var(--white);
-      border: 1px solid var(--slate-200);
-      border-top: 4px solid var(--slate-600);
-      border-radius: 4px;
-      padding: 22px;
-    }
-
-    .group-card h3 {
-      font-size: 19px;
-      color: var(--slate-800);
-      margin-bottom: 10px;
-    }
-
-    .group-card p {
-      color: var(--slate-600);
-      font-size: 15px;
-    }
-
-    /* Formulář a kontakt */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    form,
-    .contact-box {
-      background-color: var(--white);
-      border: 1px solid var(--slate-200);
-      border-radius: 4px;
-      padding: 24px;
-    }
-
-    .field {
-      margin-bottom: 14px;
-    }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: bold;
-      color: var(--slate-800);
-      margin-bottom: 5px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #b7c6d6;
-      border-radius: 4px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      color: var(--slate-900);
-      background-color: var(--white);
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: 2px solid rgba(58, 110, 165, 0.3);
-      border-color: var(--blue-accent);
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    #form-message {
-      margin-top: 12px;
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--blue-accent-hover);
-    }
-
-    .contact-box p {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-
-    .contact-box a {
-      color: var(--blue-accent-hover);
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .contact-box a:hover {
-      text-decoration: underline;
-    }
-
-    /* Patička */
-    footer {
-      background-color: var(--slate-900);
-      color: var(--blue-soft);
-      padding: 22px 0;
-      font-size: 13px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .groups,
-      .contact-layout,
-      .field-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header id="uvod">
-    <div class="wrap header-inner">
-      <a href="#uvod" class="logo">
-        <span class="logo-title">Kamenictví Cihlář</span>
-        <span class="logo-sub">Zpracování kamene</span>
-      </a>
-
-      <nav aria-label="Hlavní menu">
-        <a href="#uvod">ÚVOD</a>
-        <a href="#info-o-nas">INFO O NÁS</a>
-        <a href="#fotogalerie">FOTOGALERIE</a>
-        <a href="#poptavka">POPTÁVKA</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="wrap">
-      <p class="hero-kicker">Jsme tu pro vás již od roku 1997</p>
-      <h1>JSME SPECIALISTÉ NA ZPRACOVÁNÍ KAMENE</h1>
-      <div class="hero-buttons">
-        <a href="#info-o-nas" class="btn btn-ghost">VÍCE INFO</a>
-        <a href="#poptavka" class="btn">POPTÁVKA</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="info-o-nas">
-    <div class="wrap">
-      <h2>Info o nás</h2>
-      <div class="panel">
-        <p>
-          Firma vznikla v roce 1997 a naše služby poskytujeme převážně v oblasti severní Moravy.
-          Zaměřujeme se na zpracování kamene a to jak pro interiéry jako kamenné pracovní desky
-          nebo vnitřní parapety tak pro exteriéry. Nabízíme komplexní realizaci zakázek a precizní
-          zpracování. Taktéž širokou škálu materiálů v různých barvách a vzorech z celého světa.
-        </p>
-        <p>
-          Díky mnohaletým zkušenostem nabízíme pouze kvalitní práci za rozumné peníze. Věříme, že
-          s našimi službami budete maximálně spokojeni.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skupiny">
-    <div class="wrap">
-      <h2>Rozdělení do skupin</h2>
-      <div class="groups">
-        <article class="group-card">
-          <h3>Interiéry</h3>
-          <p>Kamenné pracovní desky nebo vnitřní parapety.</p>
-        </article>
-
-        <article class="group-card">
-          <h3>Exteriéry</h3>
-          <p>Zpracování kamene pro exteriéry a komplexní realizace zakázek.</p>
-        </article>
-
-        <article class="group-card">
-          <h3>Materiály a zpracování</h3>
-          <p>Komplexní realizace zakázek a precizní zpracování. Široká škála materiálů v různých barvách a vzorech z celého světa.</p>
-        </article>
-
-        <article class="group-card" id="fotogalerie">
-          <h3>Fotogalerie</h3>
-          <p>Fotogalerie realizací a materiálů.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="poptavka">
-    <div class="wrap">
-      <h2>POPTÁVKA</h2>
-      <div class="contact-layout">
-        <form id="contact-form">
-          <div class="field-row">
-            <div class="field">
-              <label for="name">Jméno a příjmení *</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-
-            <div class="field">
-              <label for="phone">Telefon *</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="email">E-mail *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div class="field">
-              <label for="group">Skupina</label>
-              <select id="group" name="group">
-                <option value="Interiéry">Interiéry</option>
-                <option value="Exteriéry">Exteriéry</option>
-                <option value="Materiály a zpracování">Materiály a zpracování</option>
-                <option value="Fotogalerie">Fotogalerie</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="message">Zpráva / poptávka *</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-
-          <button type="submit" class="btn">Odeslat poptávku</button>
-          <p id="form-message" aria-live="polite"></p>
-        </form>
-
-        <aside class="contact-box">
-          <p><strong>Kamenictví Cihlář</strong></p>
-          <p>Karla Svobody 179<br />Ostrava Plesná</p>
-          <p><a href="mailto:info@cihlar-rene.cz">info@cihlar-rene.cz</a></p>
-          <p><a href="http://www.cihlar-rene.cz/">www.cihlar-rene.cz</a></p>
-          <p><a href="tel:+420604516860">+420 604 516 860</a></p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>Copyright © 2017 Kamenictví Cihlář</span>
-      <span>TOPWEBY - webhosting, domény, tvorba www</span>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      var form = document.getElementById("contact-form");
-      var statusText = document.getElementById("form-message");
-
-      if (!form || !statusText) return;
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        var name = document.getElementById("name").value.trim();
-        var phone = document.getElementById("phone").value.trim();
-        var email = document.getElementById("email").value.trim();
-        var group = document.getElementById("group").value;
-        var message = document.getElementById("message").value.trim();
-
-        var subject = encodeURIComponent("Poptávka – " + group + " (" + name + ")");
-        var body = encodeURIComponent(
-          "Jméno: " + name + "\n" +
-          "Telefon: " + phone + "\n" +
-          "E-mail: " + email + "\n" +
-          "Skupina: " + group + "\n\n" +
-          "Zpráva:\n" + message
-        );
-
-        statusText.textContent = "Otevírám e-mailového klienta pro odeslání na info@cihlar-rene.cz...";
-        window.location.href = "mailto:info@cihlar-rene.cz?subject=" + subject + "&body=" + body;
-      });
-    })();
-  </script>
-</body>
-</html>
+      border: 1px solid var(--slate-
