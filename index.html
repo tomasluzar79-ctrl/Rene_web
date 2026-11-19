@@ -41,7 +41,6 @@
       padding: 0 20px;
     }
 
-    /* Hlavička */
     header {
       background-color: var(--slate-900);
       color: var(--white);
@@ -96,7 +95,6 @@
       color: var(--blue-soft);
     }
 
-    /* Větší úvodní pole s jemnějším překryvem, aby vynikla fotka image_0.png */
     .hero {
       min-height: 440px;
       display: flex;
@@ -156,7 +154,6 @@
       background-color: rgba(255, 255, 255, 0.14);
     }
 
-    /* Sekce */
     section {
       padding: 56px 0;
     }
@@ -181,7 +178,6 @@
       margin-top: 14px;
     }
 
-    /* Skupiny */
     .groups {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -190,4 +186,246 @@
 
     .group-card {
       background-color: var(--white);
-      border: 1px solid var(--slate-
+      border: 1px solid var(--slate-200);
+      border-top: 4px solid var(--slate-600);
+      border-radius: 4px;
+      padding: 22px;
+    }
+
+    .group-card h3 {
+      font-size: 19px;
+      color: var(--slate-800);
+      margin-bottom: 10px;
+    }
+
+    .group-card p {
+      color: var(--slate-600);
+      font-size: 15px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    form,
+    .contact-box {
+      background-color: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 4px;
+      padding: 24px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--slate-800);
+      margin-bottom: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #b7c6d6;
+      border-radius: 4px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: var(--slate-900);
+      background-color: var(--white);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid rgba(58, 110, 165, 0.3);
+      border-color: var(--blue-accent);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    #form-message {
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--blue-accent-hover);
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .contact-box a {
+      color: var(--blue-accent-hover);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: var(--slate-900);
+      color: var(--blue-soft);
+      padding: 22px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 360px;
+        padding: 72px 0;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .groups,
+      .contact-layout,
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="uvod">
+    <div class="wrap header-inner">
+      <a href="#uvod" class="logo">
+        <span class="logo-title">Kamenictví Cihlář</span>
+        <span class="logo-sub">Zpracování kamene</span>
+      </a>
+
+      <nav aria-label="Hlavní menu">
+        <a href="#uvod">ÚVOD</a>
+        <a href="#info-o-nas">INFO O NÁS</a>
+        <a href="#fotogalerie">FOTOGALERIE</a>
+        <a href="#poptavka">POPTÁVKA</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-kicker">Jsme tu pro vás již od roku 1997</p>
+      <h1>JSME SPECIALISTÉ NA ZPRACOVÁNÍ KAMENE</h1>
+      <div class="hero-buttons">
+        <a href="#info-o-nas" class="btn btn-ghost">VÍCE INFO</a>
+        <a href="#poptavka" class="btn">POPTÁVKA</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="info-o-nas">
+    <div class="wrap">
+      <h2>Info o nás</h2>
+      <div class="panel">
+        <p>
+          Firma vznikla v roce 1997 a naše služby poskytujeme převážně v oblasti severní Moravy.
+          Zaměřujeme se na zpracování kamene a to jak pro interiéry jako kamenné pracovní desky
+          nebo vnitřní parapety tak pro exteriéry. Nabízíme komplexní realizaci zakázek a precizní
+          zpracování. Taktéž širokou škálu materiálů v různých barvách a vzorech z celého světa.
+        </p>
+        <p>
+          Díky mnohaletým zkušenostem nabízíme pouze kvalitní práci za rozumné peníze. Věříme, že
+          s našimi službami budete maximálně spokojeni.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skupiny">
+    <div class="wrap">
+      <h2>Rozdělení do skupin</h2>
+      <div class="groups">
+        <article class="group-card">
+          <h3>Interiéry</h3>
+          <p>Kamenné pracovní desky nebo vnitřní parapety.</p>
+        </article>
+
+        <article class="group-card">
+          <h3>Exteriéry</h3>
+          <p>Zpracování kamene pro exteriéry a komplexní realizace zakázek.</p>
+        </article>
+
+        <article class="group-card">
+          <h3>Materiály a zpracování</h3>
+          <p>Komplexní realizace zakázek a precizní zpracování. Široká škála materiálů v různých barvách a vzorech z celého světa.</p>
+        </article>
+
+        <article class="group-card" id="fotogalerie">
+          <h3>Fotogalerie</h3>
+          <p>Fotogalerie realizací a materiálů.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="poptavka">
+    <div class="wrap">
+      <h2>POPTÁVKA</h2>
+      <div class="contact-layout">
+        <form id="contact-form">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Jméno a příjmení *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Telefon *</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="field">
+              <label for="group">Skupina</label>
+              <select id="group" name="group">
+                <option value="Interiéry">Interiéry</option>
+                <option value="Exteriéry">Exteriéry</option>
+                <option value="Materiály a zpracování">Materiály a zpracování</option>
+                <option value="Fotogalerie">Fotogalerie</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Zpráva / poptávka *</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Odeslat poptávku
