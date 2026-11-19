@@ -1,714 +1,662 @@
 <!DOCTYPE html>
-<html lang="cs" class="scroll-smooth">
+<html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamenictví Cihlář | Ostrava Plesná</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        stoneLightBg: '#fcfbf9',
-                        stoneCard: '#ffffff',
-                        stoneCardAlt: '#f3f1ec',
-                        stoneBorder: '#e2dfd8',
-                        textMain: '#22252a',
-                        textMuted: '#5e646d',
-                        goldAccent: '#b8973b',
-                        goldHover: '#a0812e',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fcfbf9;
-            color: #22252a;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fcfbf9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d1cbc0;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b8973b;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kamenictví Cihlář | Zpracování kamene</title>
+  <style>
+    :root {
+      --bg-dark: #1b1d1f;
+      --bg-card: #ffffff;
+      --bg-soft: #f3f1ed;
+      --text-main: #222528;
+      --text-muted: #5c6268;
+      --text-light: #f7f6f3;
+      --accent: #b88b4a;
+      --accent-dark: #966e34;
+      --border: #e2ddd5;
+      --radius: 8px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-soft);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Horní lišta a navigace */
+    header {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--text-light);
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: #c8c4bc;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-dark);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: var(--text-light);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Úvodní banner */
+    .hero {
+      background: linear-gradient(135deg, #17191b 0%, #2c3035 100%);
+      color: var(--text-light);
+      padding: 84px 0;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e6c28a;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
+      max-width: 720px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 640px;
+      color: #dcd8d0;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Sekce */
+    section {
+      padding: 68px 0;
+    }
+
+    .section-header {
+      margin-bottom: 36px;
+      max-width: 700px;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+      margin-bottom: 6px;
+    }
+
+    .section-header h2 {
+      font-size: 1.85rem;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+    }
+
+    /* Rozdělení do skupin (karty) */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--bg-dark);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      color: var(--text-main);
+    }
+
+    .card li {
+      margin-bottom: 6px;
+    }
+
+    /* O nás */
+    .about-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-box p + p {
+      margin-top: 14px;
+    }
+
+    .highlights {
+      background-color: var(--bg-soft);
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .highlights h4 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .highlights ul {
+      list-style: none;
+    }
+
+    .highlights li {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .highlights li:last-child {
+      border-bottom: none;
+    }
+
+    /* Fotogalerie (zástupné bloky) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .gallery-thumb {
+      height: 170px;
+      background-color: #d8d3c8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .gallery-caption {
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Kontaktní a poptávkový formulář */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    form {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid #cbc5ba;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background-color: #fff;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid rgba(184, 139, 74, 0.35);
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-status {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #256029;
+    }
+
+    .contact-info {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 14px;
+      font-size: 1.25rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .contact-info a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Patička */
+    footer {
+      background-color: var(--bg-dark);
+      color: #c8c4bc;
+      padding: 28px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 820px) {
+      .about-box,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body class="bg-stoneLightBg text-textMain antialiased selection:bg-goldAccent selection:text-white">
+<body>
 
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-white border border-goldAccent text-textMain px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3">
-        <i id="toast-icon" class="fa-solid fa-circle-check text-goldAccent text-xl"></i>
+  <!-- Hlavička a navigace -->
+  <header id="uvod">
+    <div class="container nav-wrap">
+      <a href="#uvod" class="brand">
+        <span class="brand-name">Kamenictví Cihlář</span>
+        <span class="brand-sub">Zpracování kamene</span>
+      </a>
+
+      <nav aria-label="Hlavní navigace">
+        <ul>
+          <li><a href="#uvod">Úvod</a></li>
+          <li><a href="#o-nas">O nás</a></li>
+          <li><a href="#skupiny">Realizace a služby</a></li>
+          <li><a href="#fotogalerie">Fotogalerie</a></li>
+          <li><a href="#poptavka">Poptávka</a></li>
+        </ul>
+      </nav>
+
+      <a href="#poptavka" class="btn">Poptávka</a>
+    </div>
+  </header>
+
+  <!-- Úvodní sekce -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">Jsme tu pro vás již od roku 1997</span>
+      <h1>Jsme specialisté na zpracování kamene</h1>
+      <p>
+        Zaměřujeme se na zakázkové zpracování kamene pro interiéry i exteriéry.
+        Nabízíme komplexní realizaci, precizní řemeslné zpracování a širokou škálu
+        materiálů v různých barvách a vzorech z celého světa – převážně v oblasti severní Moravy.
+      </p>
+      <div class="hero-actions">
+        <a href="#poptavka" class="btn">Nezávazná poptávka</a>
+        <a href="#o-nas" class="btn btn-outline">Více info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skupina: Info o nás -->
+  <section id="o-nas">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">O nás</div>
+        <h2>Tradice a poctivé kamenické řemeslo od roku 1997</h2>
+        <p>Komplexní realizace zakázek na míru s důrazem na kvalitu a rozumnou cenu.</p>
+      </div>
+
+      <div class="about-box">
         <div>
-            <h4 id="toast-title" class="font-semibold text-sm">Oznámení</h4>
-            <p id="toast-message" class="text-xs text-textMuted">Zpráva byla úspěšně odeslána.</p>
+          <p>
+            Firma vznikla v roce 1997 a své služby poskytujeme převážně v oblasti severní Moravy.
+            Zaměřujeme se na zpracování kamene jak pro interiéry, tak pro exteriéry.
+          </p>
+          <p>
+            Zajišťujeme komplexní realizaci zakázek a precizní zpracování. Vybírat můžete ze
+            široké škály materiálů v různých barvách a vzorech z celého světa. Díky mnohaletým
+            zkušenostem nabízíme kvalitní práci za rozumné peníze a věříme, že s našimi službami
+            budete maximálně spokojeni.
+          </p>
         </div>
+
+        <aside class="highlights">
+          <h4>Hlavní přednosti</h4>
+          <ul>
+            <li><strong>Rok založení:</strong> 1997</li>
+            <li><strong>Region:</strong> převážně severní Morava</li>
+            <li><strong>Sortiment:</strong> interiér i exteriér</li>
+            <li><strong>Materiály:</strong> barvy a vzory z celého světa</li>
+          </ul>
+        </aside>
+      </div>
     </div>
+  </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
-        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-3xl hover:text-goldAccent focus:outline-none">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
-            <img id="lightbox-img" src="" alt="Zvětšený detail kamenictví" class="max-h-[80vh] max-w-full object-contain rounded-lg border border-stoneBorder shadow-2xl">
-            <p id="lightbox-caption" class="text-white text-center mt-4 text-sm font-medium tracking-wide"></p>
-        </div>
+  <!-- Skupiny zakázek: Interiéry, Exteriéry, Materiály -->
+  <section id="skupiny">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Rozdělení zakázek</div>
+        <h2>Oblasti zpracování kamene</h2>
+        <p>Přehled hlavních skupin prací převzatých z původního zaměření kamenictví.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Interiéry</h3>
+          <p>Funkční i estetické prvky z přírodního kamene do domácností a staveb.</p>
+          <ul>
+            <li>Kamenné pracovní desky</li>
+            <li>Vnitřní parapety</li>
+            <li>Další interiérové prvky na míru</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Exteriéry</h3>
+          <p>Odolná kamenná řešení vystavená povětrnostním vlivům a venkovnímu provozu.</p>
+          <ul>
+            <li>Venkovní kamenické prvky</li>
+            <li>Komplexní realizace zakázek</li>
+            <li>Precizní opracování detailů</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Materiály a realizace</h3>
+          <p>Široký výběr kamenů pro sladění s architekturou i osobním vkusem.</p>
+          <ul>
+            <li>Různé barvy a kresby kamene</li>
+            <li>Vzory a materiály z celého světa</li>
+            <li>Kvalitní práce za rozumné peníze</li>
+          </ul>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-stoneBorder transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#home" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-lg bg-stoneCardAlt border border-stoneBorder flex items-center justify-center text-goldAccent font-bold text-xl group-hover:border-goldAccent transition-colors">
-                        C
-                    </div>
-                    <div>
-                        <span class="block font-bold text-lg tracking-wider text-textMain">KAMENICTVÍ</span>
-                        <span class="block text-xs font-semibold text-goldAccent tracking-widest uppercase">Cihlář • Ostrava</span>
-                    </div>
-                </a>
+  <!-- Skupina: Fotogalerie -->
+  <section id="fotogalerie">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Fotogalerie</div>
+        <h2>Ukázky realizací</h2>
+        <p>Připravené umístění pro fotografie dokončených zakázek a vzorků kamene.</p>
+      </div>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-sm font-medium text-textMuted hover:text-goldAccent transition-colors">Domů</a>
-                    <a href="#about" class="text-sm font-medium text-textMuted hover:text-goldAccent transition-colors">O nás</a>
-                    <a href="#services" class="text-sm font-medium text-textMuted hover:text-goldAccent transition-colors">Služby</a>
-                    <a href="#gallery" class="text-sm font-medium text-textMuted hover:text-goldAccent transition-colors">Galerie</a>
-                    <a href="#contact" class="text-sm font-medium text-textMuted hover:text-goldAccent transition-colors">Kontakt</a>
-                </nav>
-
-                <!-- Action Button & Mobile Menu Button -->
-                <div class="flex items-center space-x-4">
-                    <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-goldAccent text-white font-semibold text-sm hover:bg-goldHover transition-colors shadow-md shadow-goldAccent/20">
-                        Nezávazná poptávka
-                    </a>
-                    <button id="menu-btn" class="md:hidden text-textMain hover:text-goldAccent focus:outline-none p-2 rounded-lg">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-thumb">Foto – Pracovní desky</div>
+          <div class="gallery-caption">Kamenné pracovní desky (interiér)</div>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stoneBorder px-6 pt-4 pb-6 space-y-4 shadow-xl">
-            <a href="#home" class="mobile-link block text-base font-medium text-textMain hover:text-goldAccent py-2">Domů</a>
-            <a href="#about" class="mobile-link block text-base font-medium text-textMain hover:text-goldAccent py-2">O nás</a>
-            <a href="#services" class="mobile-link block text-base font-medium text-textMain hover:text-goldAccent py-2">Služby</a>
-            <a href="#gallery" class="mobile-link block text-base font-medium text-textMain hover:text-goldAccent py-2">Galerie</a>
-            <a href="#contact" class="mobile-link block text-base font-medium text-textMain hover:text-goldAccent py-2">Kontakt</a>
-            <div class="pt-2">
-                <a href="#contact" class="mobile-link block text-center w-full py-3 rounded-lg bg-goldAccent text-white font-semibold text-sm">
-                    Nezávazná poptávka
-                </a>
-            </div>
+        <div class="gallery-item">
+          <div class="gallery-thumb">Foto – Parapety</div>
+          <div class="gallery-caption">Vnitřní parapety na míru</div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-stoneCardAlt to-stoneLightBg">
-        <!-- Background Stonemasonry Photo -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&w=1920&q=80" alt="Kamenictví Cihlář - žula a pomníky" class="w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-t from-stoneLightBg via-stoneLightBg/85 to-transparent"></div>
+        <div class="gallery-item">
+          <div class="gallery-thumb">Foto – Exteriér</div>
+          <div class="gallery-caption">Exteriérové realizace</div>
         </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-stoneBorder text-goldAccent text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
-                <i class="fa-solid fa-certificate"></i>
-                <span>Tradiční kamenictví v Ostravě – Plesné od roku 1997</span>
-            </div>
-            
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-textMain tracking-tight leading-tight max-w-4xl mx-auto mb-6">
-                Precizní kamenická výroba, <span class="text-transparent bg-clip-text bg-gradient-to-r from-goldAccent to-yellow-600">pomníky a interiéry</span>
-            </h1>
-            
-            <p class="text-lg sm:text-xl text-textMuted max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                Specializujeme se na zakázkovou výrobu z přírodního a technického kamene. Hřbitovní architektura, kuchyňské desky a parapety z nejkvalitnějších světových materiálů.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-5">
-                <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-goldAccent text-white font-semibold text-base hover:bg-goldHover transition-all transform hover:-translate-y-0.5 shadow-xl shadow-goldAccent/20 text-center">
-                    Naše kamenické služby
-                </a>
-                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white border border-stoneBorder text-textMain font-semibold text-base hover:bg-stoneCardAlt transition-all text-center shadow-sm">
-                    Fotogalerie realizací
-                </a>
-            </div>
-
-            <!-- Features Quick Bar -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mt-20 pt-10 border-t border-stoneBorder text-left">
-                <div class="flex items-start space-x-4 bg-white p-5 rounded-xl border border-stoneBorder shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-stoneCardAlt flex items-center justify-center text-goldAccent shrink-0">
-                        <i class="fa-solid fa-cross"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-textMain text-sm">Hřbitovní architektura</h3>
-                        <p class="text-xs text-textMuted mt-0.5">Pomníky, náhrobky a sekání nápisů.</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4 bg-white p-5 rounded-xl border border-stoneBorder shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-stoneCardAlt flex items-center justify-center text-goldAccent shrink-0">
-                        <i class="fa-solid fa-kitchen-set"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-textMain text-sm">Kuchyňské desky</h3>
-                        <p class="text-xs text-textMuted mt-0.5">Odolná žula a technický kámen.</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4 bg-white p-5 rounded-xl border border-stoneBorder shadow-sm">
-                    <div class="w-10 h-10 rounded-lg bg-stoneCardAlt flex items-center justify-center text-goldAccent shrink-0">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-textMain text-sm">Tradice od 1997</h3>
-                        <p class="text-xs text-textMuted mt-0.5">Léta zkušeností a poctivé řemeslo.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="gallery-item">
+          <div class="gallery-thumb">Foto – Materiály</div>
+          <div class="gallery-caption">Barvy a vzory z celého světa</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-white relative border-t border-stoneBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Left Column: Workshop photo representing stonemasonry -->
-                <div class="lg:col-span-6 relative">
-                    <div class="relative rounded-2xl overflow-hidden border border-stoneBorder shadow-xl bg-stoneCardAlt">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f76e6?auto=format&fit=crop&w=800&q=80" alt="Kamenictví Cihlář dílna" class="w-full h-[420px] object-cover">
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 sm:bottom-8 sm:-right-8 bg-white border border-stoneBorder p-6 rounded-2xl shadow-xl max-w-[220px]">
-                        <div class="text-3xl font-black text-goldAccent mb-1">1997</div>
-                        <p class="text-xs text-textMuted font-medium">Rok založení v Ostravě – Plesné.</p>
-                    </div>
-                </div>
+  <!-- Kontaktní a poptávkový formulář -->
+  <section id="poptavka">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Poptávka a kontakt</div>
+        <h2>Kontaktní formulář</h2>
+        <p>Pošlete nám základní údaje o vaší zakázce – ozveme se vám s návrhem řešení.</p>
+      </div>
 
-                <!-- Right Column: Authentic Texts -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center space-x-2 text-goldAccent text-xs font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-circle text-[6px]"></i>
-                        <span>O nás</span>
-                    </div>
-
-                    <h2 class="text-3xl sm:text-4xl font-bold text-textMain tracking-tight">
-                        Tradiční kamenická firma s kořeny od roku 1997
-                    </h2>
-
-                    <p class="text-textMuted text-base leading-relaxed font-light">
-                        Firma vznikla v roce 1997. Specializujeme se na zakázkovou výrobu z přírodního a technického kamene. Naším cílem je poskytovat špičkové řemeslné práce a spolehlivost pro každého zákazníka.
-                    </p>
-
-                    <p class="text-textMuted text-sm leading-relaxed font-light">
-                        Sídlíme v Ostravě – Plesné na adrese Karla Svobody 179. Nabízíme kompletní portfolio kamenických prací pro interiéry i exteriéry – od hřbitovní architektury, pomníků a náhrobků až po kuchyňské desky, parapety a exteriérové prvky z materiálů z celého světa.
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <div class="flex items-center space-x-3 bg-stoneCardAlt p-3.5 rounded-xl border border-stoneBorder">
-                            <i class="fa-solid fa-check text-goldAccent"></i>
-                            <span class="text-sm font-medium text-textMain">Hřbitovní architektura</span>
-                        </div>
-                        <div class="flex items-center space-x-3 bg-stoneCardAlt p-3.5 rounded-xl border border-stoneBorder">
-                            <i class="fa-solid fa-check text-goldAccent"></i>
-                            <span class="text-sm font-medium text-textMain">Kuchyňské desky na míru</span>
-                        </div>
-                        <div class="flex items-center space-x-3 bg-stoneCardAlt p-3.5 rounded-xl border border-stoneBorder">
-                            <i class="fa-solid fa-check text-goldAccent"></i>
-                            <span class="text-sm font-medium text-textMain">Široká škála materiálů</span>
-                        </div>
-                        <div class="flex items-center space-x-3 bg-stoneCardAlt p-3.5 rounded-xl border border-stoneBorder">
-                            <i class="fa-solid fa-check text-goldAccent"></i>
-                            <span class="text-sm font-medium text-textMain">Osobní přístup</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-stoneLightBg border-t border-stoneBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="inline-flex items-center space-x-2 text-goldAccent text-xs font-semibold uppercase tracking-wider mb-3">
-                    <i class="fa-solid fa-circle text-[6px]"></i>
-                    <span>Naše nabídka</span>
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-bold text-textMain tracking-tight mb-4">
-                    Kamenické služby a výroba
-                </h2>
-                <p class="text-textMuted text-base font-light">
-                    Poskytujeme kompletní kamenické práce v oblasti hřbitovní architektury, interiérových prvků i exteriérů.
-                </p>
+      <div class="contact-grid">
+        <form id="poptavkovy-formular">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jmeno">Jméno a příjmení *</label>
+              <input type="text" id="jmeno" name="jmeno" required placeholder="např. Jan Novák" />
             </div>
 
-            <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Service 1: Hřbitovní architektura -->
-                <div class="bg-white rounded-2xl p-8 border border-stoneBorder hover:border-goldAccent transition-all shadow-sm group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:bg-goldAccent group-hover:text-white transition-all">
-                            <i class="fa-solid fa-cross"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-goldAccent uppercase tracking-wider">Hřbitovní architektura</span>
-                        <h3 class="text-xl font-bold text-textMain mt-1 mb-3">Pomníky a náhrobky</h3>
-                        <p class="text-textMuted text-sm leading-relaxed font-light">
-                            Kompletní výroba jednohrobů, dvojhrobů a urnových pomníků z prvotřídní žuly. Včetně sekání nápisů, zlacení a renovací.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center justify-between text-xs text-goldAccent font-medium">
-                        <span>Pietní servis</span>
-                        <a href="#contact" class="hover:underline font-semibold">Poptat <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 2: Interiérové kuchyňské desky -->
-                <div class="bg-white rounded-2xl p-8 border border-stoneBorder hover:border-goldAccent transition-all shadow-sm group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:bg-goldAccent group-hover:text-white transition-all">
-                            <i class="fa-solid fa-kitchen-set"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-goldAccent uppercase tracking-wider">Interiéry</span>
-                        <h3 class="text-xl font-bold text-textMain mt-1 mb-3">Kuchyňské pracovní desky</h3>
-                        <p class="text-textMuted text-sm leading-relaxed font-light">
-                            Luxusní kamenné desky na kuchyňské linky a koupelnové pulty z odolné žuly a technického kamene s precizními výřezy.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center justify-between text-xs text-goldAccent font-medium">
-                        <span>Zaměření a montáž</span>
-                        <a href="#contact" class="hover:underline font-semibold">Poptat <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 3: Parapety a schody -->
-                <div class="bg-white rounded-2xl p-8 border border-stoneBorder hover:border-goldAccent transition-all shadow-sm group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:bg-goldAccent group-hover:text-white transition-all">
-                            <i class="fa-solid fa-window-maximize"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-goldAccent uppercase tracking-wider">Interiéry & Exteriéry</span>
-                        <h3 class="text-xl font-bold text-textMain mt-1 mb-3">Parapety a schody</h3>
-                        <p class="text-textMuted text-sm leading-relaxed font-light">
-                            Vnitřní i venkovní kamenné parapety, masivní schodišťové stupně a obklady krbů dodávající domovu eleganci.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center justify-between text-xs text-goldAccent font-medium">
-                        <span>Zakázková výroba</span>
-                        <a href="#contact" class="hover:underline font-semibold">Poptat <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 4: Exteriérové prvky -->
-                <div class="bg-white rounded-2xl p-8 border border-stoneBorder hover:border-goldAccent transition-all shadow-sm group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:bg-goldAccent group-hover:text-white transition-all">
-                            <i class="fa-solid fa-house-chimney"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-goldAccent uppercase tracking-wider">Exteriéry</span>
-                        <h3 class="text-xl font-bold text-textMain mt-1 mb-3">Exteriérové realizace</h3>
-                        <p class="text-textMuted text-sm leading-relaxed font-light">
-                            Kamenné obklady fasád, venkovní dlažby, terasy a masivní prvky odolné vůči povětrnostním vlivům.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center justify-between text-xs text-goldAccent font-medium">
-                        <span>Odolné materiály</span>
-                        <a href="#contact" class="hover:underline font-semibold">Poptat <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 5: Světové materiály -->
-                <div class="bg-white rounded-2xl p-8 border border-stoneBorder hover:border-goldAccent transition-all shadow-sm group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:bg-goldAccent group-hover:text-white transition-all">
-                            <i class="fa-solid fa-globe"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-goldAccent uppercase tracking-wider">Materiály</span>
-                        <h3 class="text-xl font-bold text-textMain mt-1 mb-3">Široká škála z celého světa</h3>
-                        <p class="text-textMuted text-sm leading-relaxed font-light">
-                            Široký výběr žul, mramorů a pískovců z nejlepších světových lomů pro jedinečný vzhled vašeho projektu.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center justify-between text-xs text-goldAccent font-medium">
-                        <span>Přírodní kámen</span>
-                        <a href="#contact" class="hover:underline font-semibold">Poptat <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Service 6: Poradenství a montáž -->
-                <div class="bg-white rounded-2xl p-8 border border-stoneBorder hover:border-goldAccent transition-all shadow-sm group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-2xl mb-6 group-hover:bg-goldAccent group-hover:text-white transition-all">
-                            <i class="fa-solid fa-handshake"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-goldAccent uppercase tracking-wider">Servis</span>
-                        <h3 class="text-xl font-bold text-textMain mt-1 mb-3">Odborné poradenství</h3>
-                        <p class="text-textMuted text-sm leading-relaxed font-light">
-                            Pomoc při výběru vhodného kamene, konzultace záměru, přesné zaměření a odborná montáž na místě.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-stoneBorder flex items-center justify-between text-xs text-goldAccent font-medium">
-                        <span>Osobní přístup</span>
-                        <a href="#contact" class="hover:underline font-semibold">Poptat <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
+            <div class="form-group">
+              <label for="telefon">Telefon *</label>
+              <input type="tel" id="telefon" name="telefon" required placeholder="+420 ..." />
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Gallery Section (Real stonemasonry photography with lightbox) -->
-    <section id="gallery" class="py-24 bg-white border-t border-stoneBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <div class="inline-flex items-center space-x-2 text-goldAccent text-xs font-semibold uppercase tracking-wider mb-3">
-                        <i class="fa-solid fa-circle text-[6px]"></i>
-                        <span>Ukázky prací</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-textMain tracking-tight">
-                        Fotogalerie kamenických realizací
-                    </h2>
-                </div>
-                
-                <!-- Filter Buttons -->
-                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
-                    <button data-filter="all" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-goldAccent text-white transition-all shadow-sm">Vše</button>
-                    <button data-filter="pomniky" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-stoneCardAlt border border-stoneBorder text-textMuted hover:text-textMain transition-all">Pomníky & Hroby</button>
-                    <button data-filter="interier" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-stoneCardAlt border border-stoneBorder text-textMuted hover:text-textMain transition-all">Kuchyně & Desky</button>
-                    <button data-filter="exterier" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-stoneCardAlt border border-stoneBorder text-textMuted hover:text-textMain transition-all">Parapety & Schody</button>
-                </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required placeholder="vas@email.cz" />
             </div>
 
-            <!-- Gallery Grid with real stonemasonry Unsplash photos -->
-            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Item 1: Pomníky -->
-                <div class="gallery-item group relative rounded-2xl overflow-hidden border border-stoneBorder aspect-[4/3] bg-stoneCardAlt shadow-sm cursor-pointer" data-category="pomniky" data-img="https://images.unsplash.com/photo-1541888946425-d0fbb18f76e6?auto=format&fit=crop&w=1200&q=80" data-title="Zakázkový žulový pomník a hřbitovní architektura">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f76e6?auto=format&fit=crop&w=800&q=80" alt="Pomník" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-medium text-goldAccent uppercase tracking-wider">Hřbitovní architektura</span>
-                        <h4 class="text-lg font-bold mt-1">Žulový pomník a náhrobek</h4>
-                        <span class="text-xs text-stone-300 mt-2"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Klikněte pro zobrazení</span>
-                    </div>
-                </div>
-
-                <!-- Item 2: Kuchyňská deska -->
-                <div class="gallery-item group relative rounded-2xl overflow-hidden border border-stoneBorder aspect-[4/3] bg-stoneCardAlt shadow-sm cursor-pointer" data-category="interier" data-img="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" data-title="Luxusní kuchyňská deska z přírodní žuly">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Kuchyňská deska" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-medium text-goldAccent uppercase tracking-wider">Interiéry</span>
-                        <h4 class="text-lg font-bold mt-1">Kuchyňská pracovní deska</h4>
-                        <span class="text-xs text-stone-300 mt-2"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Klikněte pro zobrazení</span>
-                    </div>
-                </div>
-
-                <!-- Item 3: Hřbitovní architektura / Renovace -->
-                <div class="gallery-item group relative rounded-2xl overflow-hidden border border-stoneBorder aspect-[4/3] bg-stoneCardAlt shadow-sm cursor-pointer" data-category="pomniky" data-img="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80" data-title="Renovace hrobů a sekání nápisů">
-                    <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80" alt="Renovace pomníku" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-medium text-goldAccent uppercase tracking-wider">Hřbitovní architektura</span>
-                        <h4 class="text-lg font-bold mt-1">Renovace hrobů a nápisy</h4>
-                        <span class="text-xs text-stone-300 mt-2"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Klikněte pro zobrazení</span>
-                    </div>
-                </div>
-
-                <!-- Item 4: Parapety -->
-                <div class="gallery-item group relative rounded-2xl overflow-hidden border border-stoneBorder aspect-[4/3] bg-stoneCardAlt shadow-sm cursor-pointer" data-category="exterier" data-img="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1200&q=80" data-title="Kamenné vnitřní parapety">
-                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=800&q=80" alt="Parapety" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-medium text-goldAccent uppercase tracking-wider">Parapety & Schody</span>
-                        <h4 class="text-lg font-bold mt-1">Kamenné vnitřní parapety</h4>
-                        <span class="text-xs text-stone-300 mt-2"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Klikněte pro zobrazení</span>
-                    </div>
-                </div>
-
-                <!-- Item 5: Schody a obklady -->
-                <div class="gallery-item group relative rounded-2xl overflow-hidden border border-stoneBorder aspect-[4/3] bg-stoneCardAlt shadow-sm cursor-pointer" data-category="exterier" data-img="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" data-title="Kamenné schodišťové stupně">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Schody" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-medium text-goldAccent uppercase tracking-wider">Parapety & Schody</span>
-                        <h4 class="text-lg font-bold mt-1">Kamenné schody a obklady</h4>
-                        <span class="text-xs text-stone-300 mt-2"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Klikněte pro zobrazení</span>
-                    </div>
-                </div>
-
-                <!-- Item 6: Kámen / Suroviny -->
-                <div class="gallery-item group relative rounded-2xl overflow-hidden border border-stoneBorder aspect-[4/3] bg-stoneCardAlt shadow-sm cursor-pointer" data-category="interier" data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" data-title="Výběr materiálů z celého světa">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Kámen materiály" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-medium text-goldAccent uppercase tracking-wider">Kuchyně & Desky</span>
-                        <h4 class="text-lg font-bold mt-1">Přírodní žula a mramor</h4>
-                        <span class="text-xs text-stone-300 mt-2"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Klikněte pro zobrazení</span>
-                    </div>
-                </div>
-
+            <div class="form-group">
+              <label for="skupina">Skupina zakázky</label>
+              <select id="skupina" name="skupina">
+                <option value="interier-desky">Interiér – pracovní deska</option>
+                <option value="interier-parapety">Interiér – vnitřní parapety</option>
+                <option value="exterier">Exteriér</option>
+                <option value="jine">Jiná kamenická zakázka</option>
+              </select>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-stoneLightBg border-t border-stoneBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="inline-flex items-center space-x-2 text-goldAccent text-xs font-semibold uppercase tracking-wider mb-3">
-                    <i class="fa-solid fa-circle text-[6px]"></i>
-                    <span>Kontaktní údaje</span>
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-bold text-textMain tracking-tight mb-4">
-                    Navštivte nás nebo napište
-                </h2>
-                <p class="text-textMuted text-base font-light">
-                    Rádi zodpovíme vaše dotazy k pomníkům, kuchyňským deskám či jiným kamenickým pracím.
-                </p>
-            </div>
+          <div class="form-group">
+            <label for="zprava">Popis poptávky / rozměry / lokalita *</label>
+            <textarea
+              id="zprava"
+              name="zprava"
+              required
+              placeholder="Napište přibližné rozměry, preferovaný materiál nebo místo realizace (např. Ostrava a okolí)..."
+            ></textarea>
+          </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
-                <!-- Contact Info Cards -->
-                <div class="lg:col-span-5 space-y-6">
-                    
-                    <div class="bg-white p-6 rounded-2xl border border-stoneBorder shadow-sm flex items-start space-x-4">
-                        <div class="w-12 h-12 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-xl shrink-0">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-textMain text-base">Adresa provozovny</h4>
-                            <p class="text-textMuted text-sm mt-1">Karla Svobody 179<br>725 25 Ostrava – Plesná</p>
-                        </div>
-                    </div>
+          <button type="submit" class="btn">Odeslat poptávku</button>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </form>
 
-                    <div class="bg-white p-6 rounded-2xl border border-stoneBorder shadow-sm flex items-start space-x-4">
-                        <div class="w-12 h-12 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-xl shrink-0">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-textMain text-base">Telefonní kontakt</h4>
-                            <p class="text-textMuted text-sm mt-1">
-                                <a href="tel:604516860" class="hover:text-goldAccent transition-colors font-medium">+420 604 516 860</a>
-                            </p>
-                        </div>
-                    </div>
+        <aside class="contact-info">
+          <h3>Kontaktní údaje</h3>
+          <p><strong>Kamenictví Cihlář</strong></p>
+          <p>Karla Svobody 179<br />Ostrava – Plesná</p>
+          <p>Telefon: <a href="tel:+420604516860">+420 604 516 860</a></p>
+          <p>E-mail: <a href="mailto:info@cihlar-rene.cz">info@cihlar-rene.cz</a></p>
+          <p>Web: <a href="http://www.cihlar-rene.cz/">www.cihlar-rene.cz</a></p>
+        </aside>
+      </div>
+    </div>
+  </section>
 
-                    <div class="bg-white p-6 rounded-2xl border border-stoneBorder shadow-sm flex items-start space-x-4">
-                        <div class="w-12 h-12 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-xl shrink-0">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-textMain text-base">E-mailová adresa</h4>
-                            <p class="text-textMuted text-sm mt-1">
-                                <a href="mailto:info@cihlar-rene.cz" class="hover:text-goldAccent transition-colors font-medium">info@cihlar-rene.cz</a>
-                            </p>
-                        </div>
-                    </div>
+  <!-- Patička -->
+  <footer>
+    <div class="container footer-wrap">
+      <span>Copyright © Kamenictví Cihlář</span>
+      <span>Zpracování kamene • Severní Morava</span>
+    </div>
+  </footer>
 
-                    <div class="bg-white p-6 rounded-2xl border border-stoneBorder shadow-sm flex items-start space-x-4">
-                        <div class="w-12 h-12 rounded-xl bg-stoneCardAlt flex items-center justify-center text-goldAccent text-xl shrink-0">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-textMain text-base">Pracovní doba</h4>
-                            <p class="text-textMuted text-sm mt-1">Pondělí – Pátek: dle telefonické dohody</p>
-                        </div>
-                    </div>
+  <script>
+    const form = document.getElementById("poptavkovy-formular");
+    const statusEl = document.getElementById("form-status");
 
-                </div>
-
-                <!-- Inquiry Form -->
-                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl border border-stoneBorder shadow-sm">
-                    <h3 class="text-xl font-bold text-textMain mb-6">Nezávazná poptávka</h3>
-                    
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Vaše jméno *</label>
-                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-stoneCardAlt border border-stoneBorder text-textMain text-sm focus:outline-none focus:border-goldAccent transition-colors" placeholder="Jan Novák">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Telefonní číslo *</label>
-                                <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-xl bg-stoneCardAlt border border-stoneBorder text-textMain text-sm focus:outline-none focus:border-goldAccent transition-colors" placeholder="+420 123 456 789">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">E-mailová adresa *</label>
-                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-stoneCardAlt border border-stoneBorder text-textMain text-sm focus:outline-none focus:border-goldAccent transition-colors" placeholder="jan@novak.cz">
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Předmět / Služba</label>
-                            <select id="service-select" class="w-full px-4 py-3 rounded-xl bg-stoneCardAlt border border-stoneBorder text-textMain text-sm focus:outline-none focus:border-goldAccent transition-colors">
-                                <option value="Hřbitovní architektura / Pomník">Hřbitovní architektura / Pomník</option>
-                                <option value="Kuchyňská pracovní deska">Kuchyňská pracovní deska</option>
-                                <option value="Parapety a schody">Parapety a schody</option>
-                                <option value="Renovace hrobu / Nápis">Renovace hrobu / Nápis</option>
-                                <option value="Jiné kamenické práce">Jiné kamenické práce</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Text zprávy *</label>
-                            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-stoneCardAlt border border-stoneBorder text-textMain text-sm focus:outline-none focus:border-goldAccent transition-colors" placeholder="Napište nám podrobnosti k vaší poptávce..."></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full py-4 rounded-xl bg-goldAccent text-white font-bold text-sm hover:bg-goldHover transition-colors shadow-lg shadow-goldAccent/20">
-                            Odeslat poptávku
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-stoneBorder py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-lg bg-stoneCardAlt border border-stoneBorder flex items-center justify-center text-goldAccent font-bold text-sm">
-                        C
-                    </div>
-                    <span class="font-bold text-textMain tracking-wider">KAMENICTVÍ CIHLÁŘ</span>
-                </div>
-
-                <div class="text-xs text-textMuted text-center">
-                    &copy; 1997 – 2026 Kamenictví Cihlář (Karla Svobody 179, Ostrava Plesná). Všechna práva vyhrazena.
-                </div>
-
-                <div class="flex space-x-6 text-sm">
-                    <a href="#home" class="text-textMuted hover:text-goldAccent transition-colors">Domů</a>
-                    <a href="#about" class="text-textMuted hover:text-goldAccent transition-colors">O nás</a>
-                    <a href="#services" class="text-textMuted hover:text-goldAccent transition-colors">Služby</a>
-                    <a href="#contact" class="text-textMuted hover:text-goldAccent transition-colors">Kontakt</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript Interactive Logic -->
-    <script>
-        window.onload = function() {
-            // Mobile Menu Toggle
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-
-            // Navbar scroll effect
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 40) {
-                    navbar.classList.add('shadow-md', 'bg-white/95');
-                } else {
-                    navbar.classList.remove('shadow-md');
-                }
-            });
-
-            // Gallery Filtering Logic
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterButtons.forEach(b => {
-                        b.classList.remove('bg-goldAccent', 'text-white', 'shadow-sm');
-                        b.classList.add('bg-stoneCardAlt', 'border', 'border-stoneBorder', 'text-textMuted');
-                    });
-                    btn.classList.remove('bg-stoneCardAlt', 'border', 'border-stoneBorder', 'text-textMuted');
-                    btn.classList.add('bg-goldAccent', 'text-white', 'shadow-sm');
-
-                    const filter = btn.getAttribute('data-filter');
-
-                    galleryItems.forEach(item => {
-                        const category = item.getAttribute('data-category');
-                        if (filter === 'all' || category === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // Lightbox functionality
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            const lightboxClose = document.getElementById('lightbox-close');
-
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const imgUrl = item.getAttribute('data-img');
-                    const title = item.getAttribute('data-title');
-                    lightboxImg.src = imgUrl;
-                    lightboxCaption.textContent = title;
-                    lightbox.classList.remove('hidden');
-                    lightbox.classList.add('flex');
-                });
-            });
-
-            lightboxClose.addEventListener('click', () => {
-                lightbox.classList.remove('flex');
-                lightbox.classList.add('hidden');
-            });
-
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    lightbox.classList.remove('flex');
-                    lightbox.classList.add('hidden');
-                }
-            });
-
-            // Contact Form Handling with Toast notification
-            const contactForm = document.getElementById('contact-form');
-            const toast = document.getElementById('toast');
-            const toastTitle = document.getElementById('toast-title');
-            const toastMessage = document.getElementById('toast-message');
-
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const email = document.getElementById('email').value;
-
-                if (!name || !phone || !email) {
-                    showToast('Chyba', 'Vyplňte prosím všechna povinná pole.', 'error');
-                    return;
-                }
-
-                showToast('Poptávka odeslána', 'Děkujeme za vaši zprávu. Brzy vás budeme kontaktovat.', 'success');
-                contactForm.reset();
-            });
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const jmeno = document.getElementById("jmeno").value.trim();
+      statusEl.textContent =
+        "Děkujeme, " +
+        jmeno +
+        ". Formulář je připraven pro odeslání (pro skutečné doručení e-mailu je třeba napojit backend nebo formulářovou službu).";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
