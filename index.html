@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kamenictví Cihlář | Úvod</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
+      --slate-950: #111924;
       --slate-900: #182330;
       --slate-800: #243447;
       --slate-700: #334861;
@@ -14,8 +18,11 @@
       --slate-100: #eef2f6;
       --blue-accent: #3a6ea5;
       --blue-accent-hover: #2b5480;
-      --blue-soft: #a7c7e7;
+      --blue-soft: #b5d1ed;
       --white: #ffffff;
+      --radius: 10px;
+      --shadow-sm: 0 4px 16px rgba(24, 35, 48, 0.06);
+      --shadow-md: 0 12px 30px rgba(24, 35, 48, 0.12);
     }
 
     * {
@@ -29,22 +36,24 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background-color: var(--slate-100);
       color: var(--slate-900);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .wrap {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
     }
 
+    /* Hlavička */
     header {
-      background-color: var(--slate-900);
+      background-color: rgba(17, 25, 36, 0.96);
+      backdrop-filter: blur(8px);
       color: var(--white);
-      border-bottom: 3px solid var(--blue-accent);
+      border-bottom: 1px solid rgba(181, 209, 237, 0.18);
       position: sticky;
       top: 0;
       z-index: 50;
@@ -56,7 +65,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      padding: 16px 0;
+      padding: 18px 0;
     }
 
     .logo {
@@ -66,20 +75,25 @@
 
     .logo-title {
       display: block;
-      font-size: 20px;
-      font-weight: bold;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
     }
 
     .logo-sub {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
       color: var(--blue-soft);
+      margin-top: 2px;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 24px;
       align-items: center;
     }
 
@@ -87,398 +101,8 @@
       color: var(--white);
       text-decoration: none;
       font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-
-    nav a:hover {
-      color: var(--blue-soft);
-    }
-
-    .hero {
-      min-height: 440px;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(135deg, rgba(24, 35, 48, 0.48), rgba(51, 72, 97, 0.42)),
-        url("image_0.png") center / cover no-repeat;
-      color: var(--white);
-      padding: 104px 0;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
-    }
-
-    .hero-kicker {
-      color: var(--blue-soft);
-      font-size: 15px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .hero h1 {
-      font-size: 38px;
-      line-height: 1.25;
-      margin-bottom: 24px;
-      max-width: 720px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 11px 20px;
-      background-color: var(--blue-accent);
-      color: var(--white);
-      text-decoration: none;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background-color: var(--blue-accent-hover);
-    }
-
-    .btn-ghost {
-      background-color: rgba(24, 35, 48, 0.35);
-      border: 1px solid var(--blue-soft);
-      color: var(--white);
-    }
-
-    .btn-ghost:hover {
-      background-color: rgba(255, 255, 255, 0.14);
-    }
-
-    section {
-      padding: 56px 0;
-    }
-
-    h2 {
-      font-size: 26px;
-      color: var(--slate-800);
-      margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--slate-200);
-    }
-
-    .panel {
-      background-color: var(--white);
-      border: 1px solid var(--slate-200);
-      border-left: 4px solid var(--blue-accent);
-      border-radius: 4px;
-      padding: 24px;
-    }
-
-    .panel p + p {
-      margin-top: 14px;
-    }
-
-    .groups {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .group-card {
-      background-color: var(--white);
-      border: 1px solid var(--slate-200);
-      border-top: 4px solid var(--slate-600);
-      border-radius: 4px;
-      padding: 22px;
-    }
-
-    .group-card h3 {
-      font-size: 19px;
-      color: var(--slate-800);
-      margin-bottom: 10px;
-    }
-
-    .group-card p {
-      color: var(--slate-600);
-      font-size: 15px;
-    }
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    form,
-    .contact-box {
-      background-color: var(--white);
-      border: 1px solid var(--slate-200);
-      border-radius: 4px;
-      padding: 24px;
-    }
-
-    .field {
-      margin-bottom: 14px;
-    }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: bold;
-      color: var(--slate-800);
-      margin-bottom: 5px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #b7c6d6;
-      border-radius: 4px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      color: var(--slate-900);
-      background-color: var(--white);
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: 2px solid rgba(58, 110, 165, 0.3);
-      border-color: var(--blue-accent);
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    #form-message {
-      margin-top: 12px;
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--blue-accent-hover);
-    }
-
-    .contact-box p {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-
-    .contact-box a {
-      color: var(--blue-accent-hover);
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .contact-box a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: var(--slate-900);
-      color: var(--blue-soft);
-      padding: 22px 0;
-      font-size: 13px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 360px;
-        padding: 72px 0;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .groups,
-      .contact-layout,
-      .field-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header id="uvod">
-    <div class="wrap header-inner">
-      <a href="#uvod" class="logo">
-        <span class="logo-title">Kamenictví Cihlář</span>
-        <span class="logo-sub">Zpracování kamene</span>
-      </a>
-
-      <nav aria-label="Hlavní menu">
-        <a href="#uvod">ÚVOD</a>
-        <a href="#info-o-nas">INFO O NÁS</a>
-        <a href="#fotogalerie">FOTOGALERIE</a>
-        <a href="#poptavka">POPTÁVKA</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="wrap">
-      <p class="hero-kicker">Jsme tu pro vás již od roku 1997</p>
-      <h1>JSME SPECIALISTÉ NA ZPRACOVÁNÍ KAMENE</h1>
-      <div class="hero-buttons">
-        <a href="#info-o-nas" class="btn btn-ghost">VÍCE INFO</a>
-        <a href="#poptavka" class="btn">POPTÁVKA</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="info-o-nas">
-    <div class="wrap">
-      <h2>Info o nás</h2>
-      <div class="panel">
-        <p>
-          Firma vznikla v roce 1997 a naše služby poskytujeme převážně v oblasti severní Moravy.
-          Zaměřujeme se na zpracování kamene a to jak pro interiéry jako kamenné pracovní desky
-          nebo vnitřní parapety tak pro exteriéry. Nabízíme komplexní realizaci zakázek a precizní
-          zpracování. Taktéž širokou škálu materiálů v různých barvách a vzorech z celého světa.
-        </p>
-        <p>
-          Díky mnohaletým zkušenostem nabízíme pouze kvalitní práci za rozumné peníze. Věříme, že
-          s našimi službami budete maximálně spokojeni.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skupiny">
-    <div class="wrap">
-      <h2>Rozdělení do skupin</h2>
-      <div class="groups">
-        <article class="group-card">
-          <h3>Interiéry</h3>
-          <p>Kamenné pracovní desky nebo vnitřní parapety.</p>
-        </article>
-
-        <article class="group-card">
-          <h3>Exteriéry</h3>
-          <p>Zpracování kamene pro exteriéry a komplexní realizace zakázek.</p>
-        </article>
-
-        <article class="group-card">
-          <h3>Materiály a zpracování</h3>
-          <p>Komplexní realizace zakázek a precizní zpracování. Široká škála materiálů v různých barvách a vzorech z celého světa.</p>
-        </article>
-
-        <article class="group-card" id="fotogalerie">
-          <h3>Fotogalerie</h3>
-          <p>Fotogalerie realizací a materiálů.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="poptavka">
-    <div class="wrap">
-      <h2>POPTÁVKA</h2>
-      <div class="contact-layout">
-        <form id="contact-form">
-          <div class="field-row">
-            <div class="field">
-              <label for="name">Jméno a příjmení *</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-
-            <div class="field">
-              <label for="phone">Telefon *</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="email">E-mail *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div class="field">
-              <label for="group">Skupina</label>
-              <select id="group" name="group">
-                <option value="Interiéry">Interiéry</option>
-                <option value="Exteriéry">Exteriéry</option>
-                <option value="Materiály a zpracování">Materiály a zpracování</option>
-                <option value="Fotogalerie">Fotogalerie</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="message">Zpráva / poptávka *</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-
-          <button type="submit" class="btn">Odeslat poptávku</button>
-          <p id="form-message" aria-live="polite"></p>
-        </form>
-
-        <aside class="contact-box">
-          <p><strong>Kamenictví Cihlář</strong></p>
-          <p>Karla Svobody 179<br />Ostrava Plesná</p>
-          <p><a href="mailto:info@cihlar-rene.cz">info@cihlar-rene.cz</a></p>
-          <p><a href="http://www.cihlar-rene.cz/">www.cihlar-rene.cz</a></p>
-          <p><a href="tel:+420604516860">+420 604 516 860</a></p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>Copyright © 2017 Kamenictví Cihlář</span>
-      <span>TOPWEBY - webhosting, domény, tvorba www</span>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      var form = document.getElementById("contact-form");
-      var statusText = document.getElementById("form-message");
-
-      if (!form || !statusText) return;
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        var name = document.getElementById("name").value.trim();
-        var phone = document.getElementById("phone").value.trim();
-        var email = document.getElementById("email").value.trim();
-        var group = document.getElementById("group").value;
-        var message = document.getElementById("message").value.trim();
-
-        var subject = encodeURIComponent("Poptávka – " + group + " (" + name + ")");
-        var body = encodeURIComponent(
-          "Jméno: " + name + "\n" +
-          "Telefon: " + phone + "\n" +
-          "E-mail: " + email + "\n" +
-          "Skupina: " + group + "\n\n" +
-          "Zpráva:\n" + message
-        );
-
-        statusText.textContent = "Otevírám e-mailového klienta pro odeslání na info@cihlar-rene.cz...";
-        window.location.href = "mailto:info@cihlar-rene.cz?subject=" + subject + "&body=" + body;
-      });
-    })();
-  </script>
-</body>
-</html>
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s
