@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kamenictví Cihlář | Úvod</title>
   <style>
+    /* Definice barevných proměnných */
     :root {
       --slate-900: #182330;
       --slate-800: #243447;
@@ -96,9 +97,12 @@
       color: var(--blue-soft);
     }
 
-    /* Úvodní část */
+    /* Úvodní část s připravenou cestou pro obrázek */
     .hero {
-      background: linear-gradient(135deg, var(--slate-900), var(--slate-700));
+      /* Nastavení pozadí: gradient + obrázek (pozadi.jpg) */
+      background:
+        linear-gradient(135deg, rgba(24, 35, 48, 0.85), rgba(51, 72, 97, 0.80)),
+        url("pozadi.jpg") center / cover no-repeat;
       color: var(--white);
       padding: 72px 0;
     }
@@ -133,6 +137,7 @@
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
+      transition: background-color 0.2s ease;
     }
 
     .btn:hover {
