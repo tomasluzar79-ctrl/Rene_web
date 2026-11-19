@@ -509,4 +509,414 @@
     }
 
     textarea {
-      min-height:
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    #form-message {
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue-accent-hover);
+    }
+
+    .contact-box {
+      border-top: 4px solid var(--blue-accent);
+    }
+
+    .contact-box p {
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .contact-box p:first-child {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--slate-900);
+      margin-bottom: 14px;
+    }
+
+    .contact-box p:first-child strong {
+      font-weight: 700;
+    }
+
+    .contact-box a {
+      color: var(--blue-accent-hover);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* Patička */
+    footer {
+      background-color: var(--slate-950);
+      color: var(--blue-soft);
+      padding: 26px 0;
+      font-size: 13px;
+      border-top: 3px solid var(--blue-accent);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .category-banners,
+      .ref-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 64vh;
+        padding: 100px 0;
+      }
+
+      .category-banners,
+      .ref-grid,
+      .contact-layout,
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="uvod">
+    <div class="wrap header-inner">
+      <a href="#uvod" class="logo">
+        <span class="logo-title">Kamenictví <strong>Cihlář</strong></span>
+        <span class="logo-sub">Zpracování kamene</span>
+      </a>
+
+      <nav aria-label="Hlavní menu">
+        <a href="#uvod">ÚVOD</a>
+        <a href="#info-o-nas">INFO O NÁS</a>
+        <a href="#skupiny">KATEGORIE</a>
+        <a href="#poptavka">POPTÁVKA</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-content">
+        <p class="hero-kicker">Jsme tu pro vás již od roku 1997</p>
+        <h1>JSME SPECIALISTÉ NA <strong>ZPRACOVÁNÍ KAMENE</strong></h1>
+        <div class="hero-buttons">
+          <a href="#info-o-nas" class="btn btn-ghost">VÍCE INFO</a>
+          <a href="#poptavka" class="btn">POPTÁVKA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="info-o-nas">
+    <div class="wrap">
+      <h2>Info <strong>o nás</strong></h2>
+      <div class="panel">
+        <p>
+          Firma vznikla v roce 1997 a naše služby poskytujeme převážně v oblasti severní Moravy.
+          Zaměřujeme se na zpracování kamene a to jak pro interiéry jako kamenné pracovní desky
+          nebo vnitřní parapety tak pro exteriéry. Nabízíme komplexní realizaci zakázek a precizní
+          zpracování. Taktéž širokou škálu materiálů v různých barvách a vzorech z celého světa.
+        </p>
+        <p>
+          Díky mnohaletým zkušenostem nabízíme pouze kvalitní práci za rozumné peníze. Věříme, že
+          s našimi službami budete maximálně spokojeni.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skupiny">
+    <div class="wrap">
+      <h2>Rozdělení do <strong>skupin</strong></h2>
+      <div class="category-banners">
+        <a href="#sekce-interiery" class="banner-btn">
+          <img src="image_0.png" alt="Interiéry – kamenné pracovní desky a parapety" class="banner-bg" />
+          <span class="banner-overlay"></span>
+          <span class="banner-content">
+            <span class="banner-tag">01 / Vnitřní prostory</span>
+            <span class="banner-title">Interiéry</span>
+            <span class="banner-sub">Kamenné pracovní desky a vnitřní parapety.</span>
+            <span class="banner-cta">Přejít do sekce</span>
+          </span>
+        </a>
+
+        <a href="#sekce-zahradni-design" class="banner-btn">
+          <img src="images/zahrada-1.jpg" alt="Zahradní design – venkovní realizace z kamene" class="banner-bg" />
+          <span class="banner-overlay"></span>
+          <span class="banner-content">
+            <span class="banner-tag">02 / Venkovní plochy</span>
+            <span class="banner-title">Zahradní design</span>
+            <span class="banner-sub">Venkovní prvky, pochozí plochy a realizace v zahradách.</span>
+            <span class="banner-cta">Přejít do sekce</span>
+          </span>
+        </a>
+
+        <a href="#sekce-pietni-tvorba" class="banner-btn">
+          <img src="images/pietni-1.jpg" alt="Pietní tvorba – náhrobky a hřbitovní doplňky" class="banner-bg" />
+          <span class="banner-overlay"></span>
+          <span class="banner-content">
+            <span class="banner-tag">03 / Památníky a doplňky</span>
+            <span class="banner-title">Pietní tvorba</span>
+            <span class="banner-sub">Náhrobky, pomníky a hřbitovní doplňky z kamene.</span>
+            <span class="banner-cta">Přejít do sekce</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Interiéry -->
+  <section id="sekce-interiery">
+    <div class="wrap">
+      <h2><strong>Interiéry</strong></h2>
+      <div class="category-intro">
+        <p>
+          Kamenné pracovní desky, vnitřní parapety a další prvky z přírodního kamene pro interiéry.
+          Komplexní realizace zakázek a precizní zpracování v široké škále barev a vzorů z celého světa.
+        </p>
+      </div>
+      <div class="ref-grid">
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="image_0.png" data-caption="Interiéry – kuchyňská pracovní deska">
+            <img src="image_0.png" alt="Kamenná pracovní deska v interiéru" class="ref-thumb" />
+            <div class="ref-caption">Kamenná pracovní deska</div>
+          </button>
+        </article>
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/interier-2.jpg" data-caption="Interiéry – vnitřní kamenný parapet">
+            <img src="images/interier-2.jpg" alt="Vnitřní parapet z kamene" class="ref-thumb" />
+            <div class="ref-caption">Vnitřní parapety na míru</div>
+          </button>
+        </article>
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/interier-3.jpg" data-caption="Interiéry – detail opracování desky">
+            <img src="images/interier-3.jpg" alt="Detailní zpracování interiérového kamene" class="ref-thumb" />
+            <div class="ref-caption">Precizní opracování a montáž</div>
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Zahradní design -->
+  <section id="sekce-zahradni-design">
+    <div class="wrap">
+      <h2>Zahradní <strong>design</strong></h2>
+      <div class="category-intro">
+        <p>
+          Zpracování kamene pro zahradní a venkovní úpravy s důrazem na odolnost, funkčnost a
+          přirozené začlenění do okolí domu či zahrady.
+        </p>
+      </div>
+      <div class="ref-grid">
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/zahrada-1.jpg" data-caption="Zahradní design – realizace v zahradě">
+            <img src="images/zahrada-1.jpg" alt="Kamenné prvky v zahradě" class="ref-thumb" />
+            <div class="ref-caption">Zahradní úpravy z kamene</div>
+          </button>
+        </article>
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/zahrada-2.jpg" data-caption="Zahradní design – venkovní schody a plochy">
+            <img src="images/zahrada-2.jpg" alt="Venkovní kamenné schody a plochy" class="ref-thumb" />
+            <div class="ref-caption">Venkovní schody a plochy</div>
+          </button>
+        </article>
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/zahrada-3.jpg" data-caption="Zahradní design – detail kamenného provedení">
+            <img src="images/zahrada-3.jpg" alt="Detail zahradního kamenického prvku" class="ref-thumb" />
+            <div class="ref-caption">Odolné přírodní materiály</div>
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Pietní tvorba -->
+  <section id="sekce-pietni-tvorba">
+    <div class="wrap">
+      <h2>Pietní <strong>tvorba</strong></h2>
+      <div class="category-intro">
+        <p>
+          Důstojné a trvanlivé zpracování přírodního kamene pro náhrobky, pomníky, krycí desky a
+          hřbitovní doplňky na zakázku.
+        </p>
+      </div>
+      <div class="ref-grid">
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/pietni-1.jpg" data-caption="Pietní tvorba – kamenný pomník">
+            <img src="images/pietni-1.jpg" alt="Kamenný pomník z pietní tvorby" class="ref-thumb" />
+            <div class="ref-caption">Pomníky a náhrobky</div>
+          </button>
+        </article>
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/pietni-2.jpg" data-caption="Pietní tvorba – krycí deska a obruba">
+            <img src="images/pietni-2.jpg" alt="Krycí deska a kamenná obruba" class="ref-thumb" />
+            <div class="ref-caption">Krycí desky a obruby</div>
+          </button>
+        </article>
+        <article class="ref-card">
+          <button type="button" class="ref-trigger" data-src="images/pietni-3.jpg" data-caption="Pietní tvorba – hřbitovní doplňky">
+            <img src="images/pietni-3.jpg" alt="Hřbitovní doplňky z kamene" class="ref-thumb" />
+            <div class="ref-caption">Hřbitovní doplňky</div>
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Náhled fotografie">
+    <div class="lightbox-box">
+      <img id="lightbox-img" src="" alt="" class="lightbox-img" />
+      <div class="lightbox-caption">
+        <span id="lightbox-text"></span>
+        <button type="button" id="lightbox-close" class="lightbox-close">Zavřít</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="poptavka">
+    <div class="wrap">
+      <h2><strong>POPTÁVKA</strong></h2>
+      <div class="contact-layout">
+        <form id="contact-form">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Jméno a příjmení *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Telefon *</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="field">
+              <label for="group">Skupina</label>
+              <select id="group" name="group">
+                <option value="Interiéry">Interiéry</option>
+                <option value="Zahradní design">Zahradní design</option>
+                <option value="Pietní tvorba">Pietní tvorba</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Zpráva / poptávka *</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Odeslat poptávku</button>
+          <p id="form-message" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-box">
+          <p>Kamenictví <strong>Cihlář</strong></p>
+          <p>Karla Svobody 179<br />Ostrava Plesná</p>
+          <p><a href="mailto:info@cihlar-rene.cz">info@cihlar-rene.cz</a></p>
+          <p><a href="http://www.cihlar-rene.cz/">www.cihlar-rene.cz</a></p>
+          <p><a href="tel:+420604516860">+420 604 516 860</a></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Copyright © 2017 Kamenictví Cihlář</span>
+      <span>TOPWEBY - webhosting, domény, tvorba www</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById("contact-form");
+      var statusText = document.getElementById("form-message");
+
+      if (form && statusText) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var name = document.getElementById("name").value.trim();
+          var phone = document.getElementById("phone").value.trim();
+          var email = document.getElementById("email").value.trim();
+          var group = document.getElementById("group").value;
+          var message = document.getElementById("message").value.trim();
+
+          var subject = encodeURIComponent("Poptávka – " + group + " (" + name + ")");
+          var body = encodeURIComponent(
+            "Jméno: " + name + "\n" +
+            "Telefon: " + phone + "\n" +
+            "E-mail: " + email + "\n" +
+            "Skupina: " + group + "\n\n" +
+            "Zpráva:\n" + message
+          );
+
+          statusText.textContent = "Otevírám e-mailového klienta pro odeslání na info@cihlar-rene.cz...";
+          window.location.href = "mailto:info@cihlar-rene.cz?subject=" + subject + "&body=" + body;
+        });
+      }
+
+      var lightbox = document.getElementById("lightbox");
+      var lightboxImg = document.getElementById("lightbox-img");
+      var lightboxText = document.getElementById("lightbox-text");
+      var lightboxClose = document.getElementById("lightbox-close");
+      var triggers = document.querySelectorAll(".ref-trigger");
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove("is-open");
+        if (lightboxImg) lightboxImg.src = "";
+      }
+
+      triggers.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var src = btn.getAttribute("data-src");
+          var caption = btn.getAttribute("data-caption") || "";
+          if (!lightbox || !lightboxImg || !src) return;
+          lightboxImg.src = src;
+          lightboxImg.alt = caption;
+          if (lightboxText) lightboxText.textContent = caption;
+          lightbox.classList.add("is-open");
+        });
+      });
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener("click", closeLightbox);
+      }
+
+      if (lightbox) {
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
