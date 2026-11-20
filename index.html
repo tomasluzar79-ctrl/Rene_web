@@ -586,7 +586,19 @@
         grid-template-columns: 1fr;
       }
     }
-    .gallery-heading { margin: 2rem 0 0.75rem; }
+    .service-band { display: grid; position: relative; isolation: isolate; align-items: end; min-height: clamp(21rem, 33vw, 30rem); padding: 3rem 0; background: #182330; color: white; }
+    .service-band + .service-band { margin-top: .5rem; }
+    .service-photos { position: absolute; inset: 0; z-index: -2; display: flex; }
+    .service-photos img { min-width: 0; width: 0; flex: 1; height: 100%; object-fit: cover; }
+    .service-band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(9,17,25,.92), rgba(9,17,25,.66) 36%, transparent 75%); }
+    .service-copy h3 { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.1; margin-bottom: .6rem; }
+    .service-copy p { max-width: 55ch; font-size: 1.1rem; }
+    @media (max-width: 640px) {
+      .service-band { display: block; padding: 0; min-height: 0; }
+      .service-photos { position: static; height: 14rem; }
+      .service-band::before { display: none; }
+      .service-copy { padding-block: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -601,7 +613,7 @@
       <nav aria-label="Hlavní menu">
         <a href="#uvod">ÚVOD</a>
         <a href="#info-o-nas">INFO O NÁS</a>
-        <a href="#skupiny">KATEGORIE</a>
+        <a href="#skupiny">SLUŽBY</a>
         <a href="#poptavka">POPTÁVKA</a>
       </nav>
     </div>
@@ -638,35 +650,21 @@
     </div>
   </section>
 
-  <section id="skupiny">
-    <div class="wrap">
-      <h2>Ukázky zpracování <strong>kamene</strong></h2>
-      <h3 class="gallery-heading">Interiéry</h3>
-      <div class="ref-grid">
-        <figure class="ref-card">
-          <img class="ref-thumb" src="kuchynska-deska.webp" alt="Vápencová pracovní deska v kuchyni" loading="lazy" />
-          <figcaption class="ref-caption">Vápencová pracovní deska v kuchyni</figcaption>
-        </figure>
-      </div>
-      <h3 class="gallery-heading">Exteriéry</h3>
-      <div class="ref-grid">
-        <figure class="ref-card">
-          <img class="ref-thumb" src="zulovy-parapet.webp" alt="Leštěný žulový parapet u okna" loading="lazy" />
-          <figcaption class="ref-caption">Leštěný žulový parapet u okna</figcaption>
-        </figure>
-        <figure class="ref-card">
-          <img class="ref-thumb" src="okraj-bazenu.webp" alt="Kamenný okraj bazénu" loading="lazy" />
-          <figcaption class="ref-caption">Kamenný okraj bazénu</figcaption>
-        </figure>
-      </div>
-      <h3 class="gallery-heading">Pietní tvorba</h3>
-      <div class="ref-grid">
-        <figure class="ref-card">
-          <img class="ref-thumb" src="zulovy-nahrobek.webp" alt="Tmavý žulový náhrobek" loading="lazy" />
-          <figcaption class="ref-caption">Tmavý žulový náhrobek</figcaption>
-        </figure>
-      </div>
-    </div>
+  <section id="skupiny" aria-labelledby="services-title">
+    <div class="wrap"><h2 id="services-title">Naše <strong>služby</strong></h2></div>
+    <article class="service-band">
+      <div class="service-photos"><img src="kuchynska-deska.webp" alt="" loading="lazy"></div>
+      <div class="wrap service-copy"><h3>Interiéry</h3><p>Pro kuchyně a další obytné prostory vyrábíme pracovní desky a parapety z přírodního kamene na míru.</p></div>
+    </article>
+    <article class="service-band">
+      <div class="service-photos"><img src="zulovy-parapet.webp" alt="" loading="lazy">
+        <img src="okraj-bazenu.webp" alt="" loading="lazy"></div>
+      <div class="wrap service-copy"><h3>Exteriéry</h3><p>Z kamene zhotovujeme venkovní parapety, schodiště, zahradní chodníky i lemování bazénů.</p></div>
+    </article>
+    <article class="service-band">
+      <div class="service-photos"><img src="zulovy-nahrobek.webp" alt="" loading="lazy"></div>
+      <div class="wrap service-copy"><h3>Pomníky a náhrobky</h3><p>Vyrábíme pomníky, náhrobky, krycí desky a obruby. Tvar, odstín kamene i povrchovou úpravu vybíráme podle vašeho přání.</p></div>
+    </article>
   </section>
 
   <section id="poptavka">
@@ -697,7 +695,7 @@
               <select id="group" name="group">
                 <option value="Interiéry">Interiéry</option>
                 <option value="Exteriéry">Exteriéry</option>
-                <option value="Pietní tvorba">Pietní tvorba</option>
+                <option value="Pomníky a náhrobky">Pomníky a náhrobky</option>
               </select>
             </div>
           </div>
